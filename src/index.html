@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Facebook UI</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body class="bg-fb-bg">
-  <header class="w-full h-[56px] bg-fb-header fixed top-0 left-0 right-0 flex items-center justify-between px-4">
+  <header class="w-full h-[56px] bg-fb-header fixed top-0 left-0 right-0 flex items-center justify-between px-4 z-10">
     <!-- header-left -->
     <div class="flex items-center">
       <!-- FB logo -->
@@ -150,8 +151,86 @@
     </div>
 
     <!-- 動態牆 -->
-    <div class="w-full max-w-[744px] mx-auto">
-      <p class="w-full bg-white">動態牆</p>
+    <div class="w-full max-w-[744px] mx-auto px-4">
+      <!-- 限時動態 -->
+      <div class="relative">
+        <div id="story-list" class="flex overflow-x-auto no-scrollbar">
+          <div class="flex-1 px-[4px] min-w-[120px] cursor-pointer">
+            <div class="flex flex-col h-full">
+              <div class="h-full overflow-hidden">
+                <img class="object-cover w-full h-full duration-500 hover:scale-105"
+                  src="https://bruce-fe-fb.web.app/image/avator.png">
+              </div>
+              <div class="bg-fb-card pt-6 px-2 pb-2 relative">
+                <button
+                  class="absolute w-[32px] h-[32px] p-2 -top-4 left-[calc(50%-16px)] bg-fb rounded-full focus:outline:none ring-fb-card ring flex justify-center items-center]">
+                  <img src="https://bruce-fe-fb.web.app/image/plus.svg">
+                </button>
+                <p class="w-full text-center text-white">建立限時動態</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="absolute popover-btn -right-3 top-[calc(50%-22.5px)] w-[45px] h-[45px] z-10">
+          <img src="https://bruce-fe-fb.web.app/image/right-arrow.svg">
+        </button>
+      </div>
+
+      <!-- 發布貼文區 -->
+      <div class="card">
+        <div class="flex pb-4">
+          <div class="w-[40px] rounded-full overflow-hidden mr-3">
+            <img src="https://bruce-fe-fb.web.app/image/avator.png">
+          </div>
+          <div class="bg-fb-input flex-1 rounded-full flex items-center cursor-pointer">
+            <p class="text-left text-sm pl-3 text-gray-400">Rhino，在想什麼？</p>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 flex pt-3">
+          <button class="flex-1 h-[40px] rounded-lg hover:bg-fb-input flex justify-center items-center">
+            <div class="w-[16px]">
+              <img src="https://bruce-fe-fb.web.app/image/camera.svg">
+            </div>
+            <p class="text-gray-400 text-sm pl-1.5">直播視訊</p>
+          </button>
+          <button class="flex-1 h-[40px] rounded-lg hover:bg-fb-input flex justify-center items-center">
+            <div class="w-[16px]">
+              <img src="https://bruce-fe-fb.web.app/image/photo.svg">
+            </div>
+            <p class="text-gray-400 text-sm pl-1.5">相片 / 影片</p>
+          </button>
+          <button class="flex-1 h-[40px] rounded-lg hover:bg-fb-input flex justify-center items-center">
+            <div class="w-[16px]">
+              <img src="https://bruce-fe-fb.web.app/image/feel.svg">
+            </div>
+            <p class="text-gray-400 text-sm pl-1.5">感受 / 活動</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- 包廂輪播 -->
+      <div class="card pr-0 flex relative overflow-hidden">
+
+        <div class="swiper-container fb-live">
+          <div class="swiper-wrapper" id="swiper-wrapper-live">
+            <div class="swiper-slide">
+              <button
+                class="mr-4 px-4 h-[40px] ring-2 ring-gray-600 flex items-center rounded-full focus:outliine-none">
+                <div class="w-[24px]">
+                  <img src="https://bruce-fe-fb.web.app/image/video.svg">
+                </div>
+                <p class="ml-2 text-fb text-sm font-bold">建立包廂</p>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
+        </div>
+      </div>
+
     </div>
 
     <!-- 右側聯絡人 -->
@@ -205,7 +284,10 @@
 
   </main>
 
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+  <script src="./index.js"></script>
 </body>
 
 </html>
